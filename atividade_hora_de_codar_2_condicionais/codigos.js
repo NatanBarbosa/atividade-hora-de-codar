@@ -256,3 +256,92 @@ function ex16() {
 
     alert(`Valor total da compra: R$${valor_total.toFixed(2)}`);
 }
+
+/*
+Questão 17: Escreva um programa que verifique a validade de uma senha fornecida pelo usuário. A senha válida é o número "1234" sem aspas. Devem ser impressas as seguintes mensagens: "ACESSO PERMITIDO" caso a senha seja válida. "ACESSO NEGADO" caso a senha seja inválida.
+*/
+function ex17() {
+    var pass = 1234;
+
+    if (parseInt(prompt("Qual é a senha?")) === pass){
+        alert("ACESSO PERMITIDO");
+    } else {
+        alert("ACESSO NEGADO");
+    }
+}
+
+/*
+Questão 18: Tendo como entrada a altura e o sexo (codificado da seguinte forma: 1: feminino 2: masculino) de uma pessoa, construa um programa que calcule e imprima seu peso ideal, utilizando as seguintes fórmulas:
+Para homens: (72.7 * h) - 58
+Para mulheres: (62.1 * h) - 44.7
+*/
+function ex18() {
+    var altura = parseFloat(prompt("Sua altura (em metros)"));
+    var sexo = parseInt(prompt("Informe seu gênero. Digite 1 para feminino ou 2 para masculino"));
+    var peso_ideal;
+    
+    if (sexo === 2){
+        peso_ideal = (72.7 * altura) - 58;
+        alert("seu peso ideal é " + peso_ideal.toFixed(2) + "kg");
+    } else if(sexo === 1){
+        peso_ideal = (62.1 * altura) - 44.7;
+        alert("seu peso ideal é " + peso_ideal.toFixed(2) + "kg");
+    } else{
+        alert("escolha 1 ou 2 para sexo");
+    }
+}
+
+/*
+Questão 19: Escreva um programa para ler o número de gols marcados pelo Grêmio e o número de gols marcados pelo Inter em um GRENAL. Escrever o nome do vencedor. Caso não haja vencedor deverá ser impressa a palavra EMPATE.
+*/
+function ex19() {
+    var qnt_gols_gremio = parseInt(prompt("Número de gols do Grêmio"));
+    var qnt_gols_inter = parseInt(prompt("Número de gols do Inter"));
+    var resultado;
+    
+    if (qnt_gols_gremio > qnt_gols_inter){
+        resultado = "GRÊMIO VENCEDOR";
+    } else if(qnt_gols_gremio < qnt_gols_inter){
+        resultado = "INTER VENCEDOR";
+    } else if(qnt_gols_gremio === qnt_gols_inter){
+        resultado = "EMPATE";
+    }
+
+    alert("resultado do jogo: " + resultado);
+}
+
+/*
+Questão 19: 
+Escreva um programa para ler o número de lados de um polígono regular e a medida do lado (em cm).
+
+Calcular e imprimir o seguinte:
+
+Se o número de lados for igual a 3 escrever TRIÂNGULO e o valor do seu perímetro.
+Se o número de lados for igual a 4 escrever QUADRADO e o valor da sua área.
+Se o número de lados for igual a 5 escrever PENTÁGONO.
+Observação: Considere que o usuário só informará os valores 3, 4 ou 5.
+
+Caso o número de lados seja inferior a 3 escrever NÃO É UM POLÍGONO.
+Caso o número de lados seja superior a 5 escrever POLÍGONO NÃO IDENTIFICADO.
+*/
+
+function ex20() {
+    var lados_poligono = parseInt(prompt("Número de lados do polígono regular"));
+    var medida_lado = parseFloat(prompt("Medida do lado (em cm)"));
+    var perimetro;
+    
+    if(lados_poligono === 3){
+        perimetro = 3 * medida_lado;
+        alert("Seu polígono é um TRIÂNGULO de " + perimetro + " cm de perímetro");
+    } else if(lados_poligono === 4){
+        perimetro = 4 * medida_lado;
+        alert("Seu polígono é um QUADRADO de " + perimetro + " cm de perímetro");
+    } else if(lados_poligono === 5){
+        perimetro = 4 * medida_lado;
+        alert("Seu polígono é um PENTÁGONO de " + perimetro + " cm de perímetro");
+    } else if (lados_poligono > 5){
+        alert("POLÍGONO NÃO IDENTIFICADO");
+    } else if (lados_poligono < 3){
+        alert("NÃO É UM POLÍGONO");
+    }
+}
