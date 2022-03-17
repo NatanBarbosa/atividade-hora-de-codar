@@ -311,7 +311,7 @@ function ex19() {
 }
 
 /*
-Questão 19: 
+Questão 20: 
 Escreva um programa para ler o número de lados de um polígono regular e a medida do lado (em cm).
 
 Calcular e imprimir o seguinte:
@@ -345,3 +345,170 @@ function ex20() {
         alert("NÃO É UM POLÍGONO");
     }
 }
+
+/*
+Questão 21: Escreva um programa que leia as notas das duas avaliações normais e a nota da avaliação optativa. Calcular a média do semestre considerando que a prova optativa substitui a nota mais baixa entre as duas primeiras avaliações. Escrever a média e mensagens que indiquem se o aluno foi aprovado, reprovado ou está em exame, de acordo com as informações abaixo:
+*/
+
+function ex21() {
+    var aval_1 = Number(prompt("Nota da avaliação 1"));
+    var aval_2 = Number(prompt("Nota da avaliação 2"));
+    var aval_opt = Number(prompt("Nota da avaliação optativa"));
+    
+    //substituir nota menor
+    if(aval_1 < aval_2){
+        aval_1 = aval_opt;
+    } else if(aval_2 < aval_1){
+        aval_2 = aval_opt;
+    }
+    
+    var media = (aval_1 + aval_2) / 2
+
+    if(media >= 6){
+        alert("APROVADO COM " + media + " DE MÉDIA");
+    } else if(media < 6 && media >= 3){
+        alert("EM EXAME COM " + media + " DE MÉDIA");
+    } else {
+        alert("REPROVADO COM " + media + " DE MÉDIA");
+    }
+}
+
+/*
+Questão 22: A Loja Remi du Fromage está com uma promoção onde cada capacete artesanal para tartaruga custa R$18.230 e pode ser pago em até 15 vezes sem juros. Crie um programa onde o usuário possa informar o valor parcelas que deseja pagar e exiba o valor de cada parcela.
+*/
+
+function ex22() {
+    var qnt_parcelas = parseInt(prompt("Em quantas parcelas você irá pagar o capacete artesanal para tartaruga (R$18.230)"));
+
+    if (qnt_parcelas > 15){
+        alert("O limite de parcelas é 15");
+    } else {
+        var preco_parcela = 18230 / qnt_parcelas;
+        alert("Cada parcela irá lhe custar R$" + preco_parcela.toFixed(2));
+    }
+}
+
+/*
+Questão 23: Faça um programa em que o usuário informe 20 valores e no final, escreva o maior e o menor valor lido.
+*/
+
+function ex23() {
+    var valinputs = prompt("digite 20 números separados por virgula");
+    valinputs = valinputs.replace(' ', '');
+    var valores = valinputs.split(',');
+
+    var menor = 0;
+    var maior = 0;
+
+    //converter as strings para números
+    for(var i = 0; i < valores.length; i++){
+        valores[i] = parseInt(valores[i]);
+    }
+
+    //descobrir o menor valor
+    for(var i = 0; i < valores.length; i++){
+        if(i === 0){
+            //considerar o primeiro valor do array como o menor
+            menor = valores[i];
+        }
+
+        if(valores[i] < menor){
+            menor = valores[i];
+        }
+    }
+
+    //descobrir o maior valor
+    for(var i = 0; i < valores.length; i++){
+        if(i === 0){
+            //considerar o primeiro valor do array como o menor
+            maior = valores[i];
+        }
+
+        if(valores[i] > maior){
+            maior = valores[i];
+        }
+    }
+
+    alert("Dentre os números digitados, o menor é o " + menor + " e o maior é o " + maior);
+}
+
+/*
+Questão 24: 
+Um zoológico muito louco
+Escreva um programa que leia a idade de 2 javalis e 2 girafas (considere que a idade dos javalis será sempre diferente, assim como das girafas). Calcule e escreva a soma das idades do javali mais velho com a girafa mais nova, e o produto das idades do javali mais novo com a girafa mais velha.
+*/
+function ex24() {
+    var java_1 = Number(prompt("Idade do 1º javali"));
+    var java_2 = Number(prompt("Idade do 2º javali"));
+    var giraf_1 = Number(prompt("Idade da 1° girafa"));
+    var giraf_2 = Number(prompt("Idade da 2° girafa"));
+    var soma_idade = 0;
+    var produto_idade = 0
+
+    if(java_1 === java_2 || giraf_1 === giraf_2){
+        alert("Os mesmos animais devem ter idades diferentes");
+    } else {
+        if(java_1 > java_2 && giraf_1 < giraf_2){
+            soma_idade = java_1 + giraf_1;
+            produto_idade = java_2 * giraf_2;
+
+        } else if(java_2 > java_1 && giraf_1 < giraf_2){
+            soma_idade = java_2 + giraf_1;
+            produto_idade = java_1 * giraf_2;
+
+        } else if(java_1 > java_2 && giraf_2 < giraf_1){
+            soma_idade = java_1 * giraf_2;
+            produto_idade = java_2 + giraf_1;
+            
+        } else if(java_2 > java_1 && giraf_2 < giraf_1){
+            soma_idade = java_2 + giraf_2;
+            produto_idade = java_1 * giraf_1;
+        }
+    
+        alert("a soma das idades do javali mais velho com a girafa mais nova é: " + soma_idade);
+        alert("o produto das idades do javali mais novo com a girafa mais velha é: " + produto_idade);
+    }
+}
+
+/*
+Questão 24: 
+Uma micro calculadora
+
+Escreva um programa para ler 2 valores inteiros informados pelo usuário e uma das seguintes operações a serem executadas, codificada da seguinte forma:
+
+1 = adição
+2 = subtração
+3 = divisão
+4 = multiplicação
+O programa deve calcular e escrever o resultado dessa operação sobre os dois valores lidos.
+
+Observação: Considere que só serão lidos os valores 1, 2, 3 ou 4 para as operações
+*/
+function ex25() {
+    var valor_1 = Number(prompt("Valor 1"));
+    var valor_2 = Number(prompt("Valor 2"));
+    var operacao = Number(prompt("Operação: 1.Adição, 2.Subtração, 3.Divisão, 4.Multiplicação"));
+    var resultado = 0;
+    
+    switch (operacao){
+        case 1:
+            resultado = valor_1 + valor_2;
+            alert(resultado)
+            break;
+        case 2:
+            resultado = valor_1 - valor_2;
+            alert(resultado)
+            break;
+        case 3:
+            resultado = valor_1 / valor_2;
+            alert(resultado)
+            break;
+        case 4:
+            resultado = valor_1 * valor_2;
+            alert(resultado)
+            break;
+        default:
+             alert("digita uma operação válida");               
+    }
+}
+
