@@ -203,14 +203,18 @@ O usuário deve informar a quantidade de quilômetros total do circuito e a quan
 */
 function ex12() {
     var comprimento_pista = Number(prompt("insira o comprimento da pista (em metros)"));
-    var voltas_percorridas = Number(prompt("insira o número de voltas a serem percorridas"));
-    var reabastecimentos = Number(prompt("insira o número de reabastecimentos desejados"));
+    comprimento_pista/= 1000; //em km
+    //var voltas_percorridas = Number(prompt("insira o número de voltas a serem percorridas"));
+    //var reabastecimentos = Number(prompt("insira o número de reabastecimentos desejados"));
     var consumo_combustivel = Number(prompt("Insira o consumo de combustível do carro (em Km/L)."));
 
-    var qnt_km_total = Number(prompt("quantidade de quilômetros total do circuito"));
-    var qnt_max_litros = Number(prompt("Quantidade máxima de litros do carro"));
+    //var qnt_km_total = Number(prompt("quantidade de quilômetros total do circuito"));
+    //var qnt_max_litros = Number(prompt("Quantidade máxima de litros do carro"));
 
-    alert("pulei kk")
+    var litros_necessarios = comprimento_pista * consumo_combustivel;
+
+    alert(`Para andar ${comprimento_pista}km o carro vai precisar de ${litros_necessarios} litros`);
+    //considerando que o reabastecimento é no começo da pista
 }
 
 /*
