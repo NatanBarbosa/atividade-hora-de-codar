@@ -60,8 +60,18 @@ Questão 5: Faça um algoritmo que calcule e escreva a média aritmética dos n�
 */
 function ex05() {
     
-    //2 números ou indefinidos números
+    var nota1 = parseInt(prompt("Nota da 1º avaliação"));
+    var nota2;
 
+    do{
+        nota2 = parseInt(prompt("Nota da 2º avaliação"));
+        if(nota2 < nota1){
+            alert("A nota 1 deve ser menor que a nota 2");
+        }
+    } while(nota2 < nota1)
+
+    var media = (nota1 + nota2) / 2;
+    alert("A media das nota é de " + media);
 }
 
 /*
