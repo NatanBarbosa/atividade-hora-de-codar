@@ -23,3 +23,7 @@ Sempre que o usuário for acessar o saldo, sacar, retirar o extrato ou transferi
 Quando o usuário escolher sair do sistema, exiba uma mensagem agradecendo por utilizar os serviços do banco: "{Nome}, foi um prazer ter você por aqui!".
 
 Na função "inicio", utilize escolha/caso (switch/case) para validar a opção do usuário.
+
+OBS: O objetivo da atividade é para ler o código original do banco produzido pelo professor, entende-lo e aplicar as melhorias solicitadas acima.
+O código original está em: "codigo_anterior.html"
+O código melhorado está em: "banco_ficticio/banco_ficticio.html"
